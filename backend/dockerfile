@@ -1,0 +1,11 @@
+FROM ruby:2.6.6-alpine
+
+COPY . /myapp
+
+WORKDIR /myapp
+
+RUN bundle install
+
+EXPOSE 4567
+
+CMD ["ruby", "app.rb"]
