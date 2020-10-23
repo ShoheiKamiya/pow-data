@@ -1,11 +1,10 @@
-FROM ruby:2.6.6-alpine
+FROM node:12
 
-COPY . /myapp
+WORKDIR /usr/src/app
+COPY package*.json ./
 
-WORKDIR /myapp
+RUN npm install
+COPY . .
 
-RUN bundle install
-
-EXPOSE 4567
-
-CMD ["ruby", "app.rb"]
+EXPOSE 8080
+CMD [ "node", "server.js" ]
