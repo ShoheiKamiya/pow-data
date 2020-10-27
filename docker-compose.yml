@@ -1,0 +1,22 @@
+version: "3"
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - 8081:8081
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+    command: yarn serve
+  backend:
+    build: ./backend
+    ports:
+      - 8080:8080
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+    command: yarn start
