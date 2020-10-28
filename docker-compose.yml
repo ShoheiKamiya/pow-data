@@ -20,3 +20,13 @@ services:
     stdin_open: true
     tty: true
     command: yarn start
+  db:
+    image: postgres:9.6.18-alpine
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=password
+      - db:/var/lib/postgresql/data/
+    volumes:
+      - ./initdb/:/docker-entrypoint-initdb.d
+      - ./database:/var/lib/postgresql/data/
