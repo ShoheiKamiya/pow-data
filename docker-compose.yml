@@ -19,6 +19,8 @@ services:
       - /app/node_modules
     stdin_open: true
     tty: true
+    depends_on:
+      - db
     command: yarn start
   db:
     image: postgres:9.6.18-alpine

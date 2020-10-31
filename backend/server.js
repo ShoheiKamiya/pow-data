@@ -1,17 +1,25 @@
 'use strict';
 
 const express = require('express');
+const { Pool } = require('pg');
 
 // Constants
 const PORT = 8080;
 const HOST = '0.0.0.0';
 
+const pool = new Pool({
+  user: 'postgres',
+  host: 'db',
+  password: 'password',
+  database: 'pow-data',
+  port: 5432,
+})
+
 // App
 const app = express();
-app.get('/', (req, res) => {
-  res.json({
-    message: 'Hello World!!'
-  });
+app.get('/', async (req, res) => {
+  const response = await pool.query('SELECT * from users;');
+  res.json(response.rows)
 });
 
 app.listen(PORT, HOST);
