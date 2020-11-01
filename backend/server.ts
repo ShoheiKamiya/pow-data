@@ -17,7 +17,7 @@ const pool = new Pool({
 
 // App
 const app = express();
-app.get('/', async (req, res) => {
+app.get('/', async (req: any, res: any) => {
   const response = await pool.query('SELECT * from users;');
   res.json(response.rows)
 });
