@@ -4,7 +4,8 @@
   "description": "Node.js on Docker",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "yarn run build:live",
+    "build:live": "nodemon --watch '*.ts' --exec 'ts-node' server.ts"
   },
   "dependencies": {
     "express": "^4.16.1",
