@@ -1,8 +1,9 @@
 'use strict';
 
-const express = require('express');
+var express = require('express');
 const { Pool } = require('pg');
 require('dotenv').config();
+const mountains = require('./mountains');
 
 // Constants
 const PORT = 8080;
@@ -22,6 +23,10 @@ app.get('/', async (req: any, res: any) => {
   const response = await pool.query('SELECT * from users;');
   res.json(response.rows)
 });
+app.get('/compare', (req: any, res: any) => {
+  res.json(req.query)
+})
+app.use('/mountains', mountains);
 
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
