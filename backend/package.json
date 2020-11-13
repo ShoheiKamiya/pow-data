@@ -2,6 +2,7 @@
   "name": "docker_web_app",
   "version": "1.0.0",
   "description": "Node.js on Docker",
+  "license": "UNLICENSED",
   "main": "server.js",
   "scripts": {
     "start": "yarn run build:live",
