@@ -1,4 +1,4 @@
-module.exports = {
+export const dbconfig = {
   development: {
     user: process.env.DB_USER,
     host: process.env.DB_HOST,

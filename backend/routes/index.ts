@@ -1,22 +1,23 @@
 'use strict';
 
-var express = require('express');
+// var express = require('express');
+import express from 'express';
 const { Pool } = require('pg');
 require('dotenv').config();
-const mountains = require('./mountains');
-const dbconfig = require('../dbconfig')
+import mountains from './mountains';
+import { dbconfig } from '../dbconfig';
 
 // Constants
 const PORT = 8080;
 const HOST = '0.0.0.0';
 
-declare namespace NodeJS {
-  interface ProcessEnv {
-    readonly NODE_ENV: 'development' | 'production' | 'test';
-  }
-}
+// declare namespace NodeJS {
+//   interface ProcessEnv {
+//     readonly NODE_ENV: 'development' | 'production' | 'test';
+//   }
+// }
 
-const pool = new Pool(dbconfig[process.env['NODE_ENV']])
+const pool = new Pool(dbconfig['development'])
 
 // App
 const app = express();

@@ -1,6 +1,5 @@
-'use strict'
+import express from 'express';
 
-var express = require('express');
 const router = express.Router();
 router.get('/', (req: any, res: any) => {
   res.json({index: 'スキー場一覧'});
@@ -11,4 +10,4 @@ router.get('/:mountainId', (req: any, res: any) => {
   res.json(params)
 })
 
-module.exports = router;
+export default router;
