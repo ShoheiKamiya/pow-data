@@ -1,15 +1,16 @@
 'use strict';
 
-// var express = require('express');
 import express from 'express';
-const { Pool } = require('pg');
-require('dotenv').config();
+import { Pool } from 'pg';
 import mountains from './mountains';
 import { dbconfig } from '../dbconfig';
+import dotenv from 'dotenv';
+dotenv.config();
 
 // Constants
 const PORT = 8080;
 const HOST = '0.0.0.0';
+
 
 // declare namespace NodeJS {
 //   interface ProcessEnv {
