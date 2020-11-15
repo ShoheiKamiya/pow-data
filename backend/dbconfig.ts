@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 export const dbconfig = {
   development: {
     user: process.env.DB_USER,

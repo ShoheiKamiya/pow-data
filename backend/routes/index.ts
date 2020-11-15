@@ -4,8 +4,6 @@ import express from 'express';
 import { Pool } from 'pg';
 import mountains from './mountains';
 import { dbconfig } from '../dbconfig';
-import dotenv from 'dotenv';
-dotenv.config();
 
 // Constants
 const PORT = 8080;
