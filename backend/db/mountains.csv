@@ -1,0 +1,7 @@
+id,name,short_name,prefecture_id,description,url
+grand_hurafu,ニセコマウンテンリゾートグラン・ヒラフ,ヒラフ,1,公式ホームページの「山頂」データを利用しています。,https://www.grand-hirafu.jp/winter/gelande/business_hours/
+madarao,斑尾高原スキー場,斑尾,20,,http://www.madarao.jp/ski
+togakushi,戸隠スキー場,戸隠,20,降雪量は公表されていません。,https://www.togakusi.com/ski/
+hakuba_goryu,エイブル白馬五竜スキー場,白馬五竜,20,アルプス平ゲレンデのデータを利用しています。,https://www.hakubaescal.com/winter/
+rusutsu,ルスツリゾートスキー場,ルスツ,1,Mt.イゾラのデータを利用しています。,https://rusutsu.com/snow-and-weather-report/
+yuzawa,湯沢高原スキー場,湯沢,20,降雪量、積雪量は公開されていません。,https://www.yuzawakogen.com/
