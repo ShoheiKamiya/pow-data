@@ -7,28 +7,23 @@ const file = 'db/mountains.csv';
 const data = fs.readFileSync(file);
 
 const mountains = parser(data);
+
+const insertText = (header: string[], rows: string[][]) => {
+  const insert = `INSERT INTO mountains (${header.join()}) VALUES`
+  const values = rows.map(row => {
+    return `(${row.map(value => `'${value}'`).join()})`
+  })
+
+  return `
+  ${insert}
+  ${values.join()}
+  `
+}
+
+console.log(dbconfig['development'])
+
 const pool = new Pool(dbconfig['development'])
-
-type mountain = {
-  id: string,
-  name: string,
-  short_name: string,
-  prefecture_id: string,
-  description: string,
-  url: string
-}
-
-const csv2json = (array: any) => {
-  const keys = array[0]
-  return array.map((row: any, index: number) => {
-    if (index === 0) {
-      return
-    };
-
-    return keys.map((key: any, index: number) => {
-      return {[key]: row[index]}
-    });
-  }).slice(1);
-}
-
-console.log(csv2json(mountains));
+pool
+  .query(insertText(mountains[0], mountains.slice(1)))
+  .then(res => console.log(res))
+  .catch(e => console.error(e))
